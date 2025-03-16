@@ -1,16 +1,26 @@
 
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css'
-
-function App() {
+import Body from './components/Body'
+import Login from './components/Login';
+import Browse from './components/Browse';
+function App () {
  
-
+  
   return (
     <>
-    
-      <h1 className='text-2xl font-red text-green-800'>Namste EveryOne</h1>
-     
+  {/* <Body />  */}
+  {/* <Provider store ={appStore} /> */}
+  <BrowserRouter basename ="/">
+  <Routes>
+    <Route path="/" element ={<Body />}>
+    <Route path="/" element ={<Login />} />
+    <Route path ="/browse" element={<Browse />}/> 
+    </Route>
+  </Routes>
+  </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

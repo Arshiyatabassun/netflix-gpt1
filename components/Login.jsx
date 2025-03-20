@@ -33,6 +33,7 @@ const handleClick =()=>{
       // Sign up logic 
       const user = userCredential.user;
       console.log(user)
+      // navigate("/browse")
     
     })
     .catch((error) => {
@@ -48,6 +49,7 @@ const handleClick =()=>{
     // Signed in 
     const user = userCredential.user;
     console.log(user)
+
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -66,12 +68,12 @@ const handleClick =()=>{
         <img src="https://assets.nflxext.com/ffe/siteui/vlv3/50fcc930-ba3f-4cae-9257-9f920e30a998/web/IN-en-20250310-TRIFECTA-perspective_739387a0-ff14-44ed-a5af-36e5aa4d236e_medium.jpg"/>
       </div>
       <form  onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute bg-black p-12 my-36 mx-auto right-0 left-0 text-white rounded-lg opacity-80">
-         <h1 className="font-bold text-3xl py-4">{isSignInForm ? "SignUp" : "Sign In"}</h1>
+         <h1 className="font-bold text-3xl py-4">{isSignInForm ? "SignIn" : "SignUp"}</h1>
        {!isSignInForm && <input type="text" ref={name} placeholder="Full Name" className="p-4 my-4 w-full bg-gray-900" /> }
         <input type="text" ref={email} placeholder="Email Address" className="p-4 my-4 w-full bg-gray-900" />
         <input type="password" ref={password} placeholder="Password" className="p-4 my-4 w-full bg-gray-900"/>
         <p className="text-red-500">{isErrorMessage}</p>
-        <button className="p-4 my-6 bg-red-700 w-full rounded-lg" onClick={handleClick}>{isSignInForm ? "SignUp" : "SignIn"}</button>
+        <button className="p-4 my-6 bg-red-700 w-full rounded-lg" onClick={handleClick}>{isSignInForm ? "SignIn" : "SignUp"}</button>
         <p className="py-6 cursor-pointer"onClick={toggleSignInForm}>{isSignInForm ? "New to Netflix? signUp Now" : "Already registered ? Sign In Now"}</p>
       </form>
       </div>

@@ -3,8 +3,10 @@ import Header from "./Header";
 import React from "react";
 import { useState,useRef } from "react";
 import checkValidateData from "../utils/validate.js"
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfile  } from "firebase/auth";
 import {auth} from "../utils/firebase.js"
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice.js";
 
 
 
@@ -15,6 +17,7 @@ const Login =()=>{
   const name =useRef(null);
  const email =useRef(null);
  const password =useRef(null)
+ const dispatch = useDispatch();
 
 const handleClick =()=>{
   
@@ -32,6 +35,16 @@ const handleClick =()=>{
     .then((userCredential) => {
       // Sign up logic 
       const user = userCredential.user;
+      updateProfile(user, {
+        displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/96403942?v=4&size=64"
+         }
+        ).then(() => {
+        const {uid,email,displayName,photoURL} =auth.currentUser;
+              dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+      }).catch((error) => {
+       setIsErrorMessage(error.message)
+      });
+      
       console.log(user)
       // navigate("/browse")
     

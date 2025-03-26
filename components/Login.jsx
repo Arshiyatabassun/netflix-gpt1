@@ -7,8 +7,7 @@ import { createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfil
 import {auth} from "../utils/firebase.js"
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
-
-
+import { USER_AVATR } from "../utils/constants.js";
 
 
 const Login =()=>{
@@ -36,7 +35,7 @@ const handleClick =()=>{
       // Sign up logic 
       const user = userCredential.user;
       updateProfile(user, {
-        displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/96403942?v=4&size=64"
+        displayName: name.current.value, photoURL:USER_AVATR
          }
         ).then(() => {
         const {uid,email,displayName,photoURL} =auth.currentUser;
@@ -46,7 +45,7 @@ const handleClick =()=>{
       });
       
       console.log(user)
-      // navigate("/browse")
+  
     
     })
     .catch((error) => {
@@ -78,7 +77,7 @@ const handleClick =()=>{
       <div>
       <div className="absolute">
       
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/50fcc930-ba3f-4cae-9257-9f920e30a998/web/IN-en-20250310-TRIFECTA-perspective_739387a0-ff14-44ed-a5af-36e5aa4d236e_medium.jpg"/>
+        <img src={USER_AVATR}/>
       </div>
       <form  onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute bg-black p-12 my-36 mx-auto right-0 left-0 text-white rounded-lg opacity-80">
          <h1 className="font-bold text-3xl py-4">{isSignInForm ? "SignIn" : "SignUp"}</h1>

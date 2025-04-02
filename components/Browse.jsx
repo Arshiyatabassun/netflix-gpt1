@@ -7,12 +7,14 @@ import SecondaryContainer from "./SecondaryContainer";
 import VideoBackground from "./VideoBackground";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useUpComingMovies from "../hooks/useUpComing";
 
 const Browse =()=>{
   
    useNowPlayingMovies()
    usePopularMovies()
    useTopRatedMovies()
+   useUpComingMovies()
     return(
         <div>
             {/* <Header /> */}

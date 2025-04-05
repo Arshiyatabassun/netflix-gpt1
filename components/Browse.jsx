@@ -8,6 +8,8 @@ import VideoBackground from "./VideoBackground";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpComingMovies from "../hooks/useUpComing";
+import GptSearchPage from "./GPTSearchPage";
+import { toggleSearchView } from "../utils/gptSlice";
 
 const Browse =()=>{
   
@@ -18,9 +20,10 @@ const Browse =()=>{
     return(
         <div>
             {/* <Header /> */}
-
-            <MainContainer />
+           { toggleSearchView ? <GptSearchPage /> : <><MainContainer />
             <SecondaryContainer />
+            </>}
+            
          
         
         </div>

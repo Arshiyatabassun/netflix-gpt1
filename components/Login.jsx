@@ -77,7 +77,7 @@ const handleClick =()=>{
       <div>
       <div className="absolute">
       
-        <img src={USER_AVATR}/>
+        <img src={USER_AVATR} alt="logo"/>
       </div>
       <form  onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute bg-black p-12 my-36 mx-auto right-0 left-0 text-white rounded-lg opacity-80">
          <h1 className="font-bold text-3xl py-4">{isSignInForm ? "SignIn" : "SignUp"}</h1>

@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {onAuthStateChanged, signOut } from "firebase/auth"
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
@@ -46,7 +46,7 @@ console.log(user)
         <img  className="w-44" alt="logo" src={LOGO}/>
        
         {user &&<div className="flex p-2 cursor-pointer">
-          <button className="py-2 px-2 my-2 m-4 bg-purple-600 text-white rounded-lg" onClick={handlegptSearch}>GPT Search</button>
+          <button className="py-2 px-2 my-2 m-4 bg-purple-600 text-white rounded-lg cursor-pointer" onClick={handlegptSearch}>GPT Search</button>
             <img  className= "w-12 h-12 rounded-full" alt="usericon" src={user?.photoURL}/>
         <button className="font-bold text-red-500" onClick={handleSignOut}>Sign out</button>
         </div>}

@@ -13,6 +13,10 @@ hindi:{
 spanish:{
       search:"Buscar",
     gptPlaceholder:"¿Qué te gustaría ver hoy?"
+},
+kannada:{
+    search:"ಹುಡುಕು",
+    gptPlaceholder:"ನೀವು ಇಂದು ಏನು ನೋಡಲು ಬಯಸುತ್ತೀರಿ?"
 }
 
 }

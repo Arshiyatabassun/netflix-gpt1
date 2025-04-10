@@ -13,6 +13,7 @@ const Header =()=>{
 const navigate =useNavigate()
 const  dispatch= useDispatch();
 const user=useSelector((store)=>store.user)
+const showGptSearch =useSelector((store)=>store.gpt.toggleSearch)
 console.log(user)
     const handleSignOut=()=>{
         signOut(auth).then(() => {
@@ -20,6 +21,7 @@ console.log(user)
             navigate("/")
           }).catch((error) => {
             navigate("/error")
+            console.log(error.message)
           });
         
     }
@@ -53,12 +55,12 @@ console.log(user)
         <img  className="w-44" alt="logo" src={LOGO}/>
        
         {user &&<div className="flex p-2 cursor-pointer">
-          <select className="p-2 m-2 text-white bg-gray-700" onChange = {handleLanguageChange}>
+          {showGptSearch && <select className="p-2 m-2 text-white bg-gray-700" onChange = {handleLanguageChange}>
            {SUPPORTED_LANG.map((lang)=>(
            <option key={lang.identifier} value ={lang.identifier} >{lang.name}</option>
            ))}
-          </select>
-          <button className="py-2 px-2 my-2 m-4 bg-purple-600 text-white rounded-lg cursor-pointer" onClick={handlegptSearch}>GPT Search</button>
+          </select>}
+          <button className="py-2 px-2 my-2 m-4 bg-purple-600 text-white rounded-lg cursor-pointer" onClick={handlegptSearch}>{showGptSearch ? "Homepage" :"GPT Search"}</button>
             <img  className= "w-12 h-12 rounded-full" alt="usericon" src={user?.photoURL}/>
         <button className="font-bold text-red-500" onClick={handleSignOut}>Sign out</button>
         </div>}

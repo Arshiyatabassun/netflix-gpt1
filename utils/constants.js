@@ -20,4 +20,4 @@ export const SUPPORTED_LANG = [
 ];
 
 
-//  export const OPENAI_KEY="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";
+ export const OPENAI_KEY="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";

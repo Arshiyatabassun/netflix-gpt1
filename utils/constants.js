@@ -8,7 +8,8 @@ export const API_Options = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDdmZjg5M2ZjMmQxNjg0NjljY2MzOTUzNWUyNjFmYyIsIm5iZiI6MTc0MzAxMDk2NS45OTYsInN1YiI6IjY3ZTQzYzk1YTYzYmNjNDk5N2RjYjJiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QGf95TAFN__rlXPMC7Ozmsq0V4A0boXTM2C66-kWWjE",
+     
+      "Bearer" +import.meta.env.VITE_REACT_APP_TMDB_KEY,
   },
 };
 
@@ -20,4 +21,6 @@ export const SUPPORTED_LANG = [
 ];
 
 
-//  export const OPENAI_KEY="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";
+
+
+ export const OPENAI_KEY= import.meta.env.VITE_REACT_APP_OPENAI_KEY;
